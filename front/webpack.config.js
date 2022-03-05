@@ -8,12 +8,17 @@ const jsRules = {
   }
 }
 
+const assetsRules = {
+  test: /\.(png|svg|jpg|jpeg|gif)$/i,
+  type: 'asset/resource',
+}
+
 module.exports = (env, { mode }) => ({
   output: {
     filename: 'bundle.[contenthash].js'
   },
   module: {
-    rules: [jsRules]
+    rules: [jsRules, assetsRules]
   },
   resolve: { extensions: [".js", ".jsx"] },
    plugins: [
